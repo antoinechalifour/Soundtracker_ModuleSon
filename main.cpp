@@ -1,6 +1,7 @@
 //#include "ofMain.h"
 //#include "ofApp.h"
 #include <Windows.h>
+#include <time.h>
 #include "ofSoundPlayer.h"
 
 #include<iostream>
@@ -11,6 +12,82 @@
 #include "Position.h"
 
 using namespace std;
+
+#define QUANT 8
+
+void starwars(){
+	Pattern p;
+	Sample s;
+	Sample s2;
+	Sample s3;
+	s.setSound("../../data/sample.wav");
+	s2.setSound("../../data/sample2.wav");
+	s3.setSound("../../data/setbass.wav");
+	s3.setRepeat(true);
+
+
+	p.getPiste(0).getDivision(0 * QUANT).setSample(&s);
+	p.getPiste(0).getDivision(0 * QUANT).setNote(220);
+	p.getPiste(1).getDivision(0 * QUANT).setSample(&s2);
+	p.getPiste(2).getDivision(0 * QUANT).setSample(&s3);
+
+	p.getPiste(0).getDivision(1 * QUANT - 1).setSample(&s);
+	p.getPiste(0).getDivision(1 * QUANT - 1).setNote(220);
+	p.getPiste(1).getDivision(1 * QUANT - 1).setSample(&s2);
+
+	p.getPiste(0).getDivision(2 * QUANT - 1).setSample(&s);
+	p.getPiste(0).getDivision(2 * QUANT - 1).setNote(220);
+	p.getPiste(1).getDivision(2 * QUANT - 1).setSample(&s2);
+
+	p.getPiste(0).getDivision(3 * QUANT - 1).setSample(&s);
+	p.getPiste(0).getDivision(3 * QUANT - 1).setNote(176);
+	p.getPiste(1).getDivision(3 * QUANT - 1).setSample(&s2);
+
+
+	p.getPiste(1).getDivision(3 * QUANT + 4).setSample(&s2);
+	p.getPiste(1).getDivision(3 * QUANT + 5).setSample(&s2);
+	p.getPiste(1).getDivision(3 * QUANT + 6).setSample(&s2);
+	p.getPiste(1).getDivision(3 * QUANT + 7).setSample(&s2);
+
+	p.getPiste(0).getDivision(3 * QUANT + 6).setSample(&s);
+	p.getPiste(0).getDivision(3 * QUANT + 6).setNote(264);
+
+	p.getPiste(0).getDivision(4 * QUANT - 1).setSample(&s);
+	p.getPiste(0).getDivision(4 * QUANT - 1).setNote(220);
+	p.getPiste(2).getDivision(4 * QUANT).setSample(&s3);
+	p.getPiste(2).getDivision(4 * QUANT).setNote(220);
+
+	p.getPiste(1).getDivision(4 * QUANT + 4).setSample(&s2);
+	p.getPiste(1).getDivision(4 * QUANT + 5).setSample(&s2);
+	p.getPiste(1).getDivision(4 * QUANT + 6).setSample(&s2);
+	p.getPiste(1).getDivision(4 * QUANT + 7).setSample(&s2);
+
+	p.getPiste(0).getDivision(5 * QUANT - 1).setSample(&s);
+	p.getPiste(0).getDivision(5 * QUANT - 1).setNote(176); 
+	p.getPiste(1).getDivision(5 * QUANT - 1).setSample(&s2);
+	p.getPiste(1).getDivision(5 * QUANT - 1).setSample(&s2);
+
+	p.getPiste(1).getDivision(5 * QUANT + 4).setSample(&s2);
+	p.getPiste(1).getDivision(5 * QUANT + 5).setSample(&s2);
+	p.getPiste(1).getDivision(5 * QUANT + 6).setSample(&s2);
+	p.getPiste(1).getDivision(5 * QUANT + 7).setSample(&s2);
+
+	p.getPiste(0).getDivision(5 * QUANT + 6).setSample(&s);
+	p.getPiste(0).getDivision(5 * QUANT + 6).setNote(264);
+
+	p.getPiste(0).getDivision(6 * QUANT - 1).setSample(&s);
+	p.getPiste(0).getDivision(6 * QUANT - 1).setNote(220);
+	p.getPiste(1).getDivision(6 * QUANT - 1).setSample(&s2);
+	p.getPiste(1).getDivision(6 * QUANT - 1).setSample(&s2);
+
+	for (int i = 0; i < 64; i++){
+		cout << "Division : " << i << endl;
+		p.getPiste(0).getDivision(i).play();
+		p.getPiste(1).getDivision(i).play();
+		p.getPiste(2).getDivision(i).play();
+		Sleep(75);
+	}
+}
 
 //========================================================================
 int main( ){
@@ -84,6 +161,7 @@ int main( ){
 	}
 	*/
 
+	/*
 	Sample s;
 	s.setSound("../../data/sample.wav");
 	Piste p;
@@ -95,8 +173,8 @@ int main( ){
 		note = note * 1.059463;
 	}
 	p.play(96, 30);
-
-	
+	*/
+	starwars();
 	getchar();
 
 }

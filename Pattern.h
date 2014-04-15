@@ -29,6 +29,8 @@ public:
 	std::string getNom();
 	void setNom(std::string nom);
 
+	Piste& getPiste(int index);
+
 	/* DEBUG */
 	void debug();
 };

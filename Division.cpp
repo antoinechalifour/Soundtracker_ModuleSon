@@ -46,7 +46,7 @@ Division& Division::operator=(const Division& d){
 
 /* AUTRES METHODES */
 void Division::play(){
-	sample->play(note, volume);
+	if (sample != NULL) sample->play(note, volume);
 }
 
 /* Méthode de débug

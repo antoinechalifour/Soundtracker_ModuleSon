@@ -43,6 +43,11 @@ void Pattern::setNom(std::string nom){
 	this->nom = nom;
 }
 
+
+Piste& Pattern::getPiste(int index){
+	return pistes[index];
+}
+
 /* Méthode de débug
 Affiche les informations connues sur le Pattern.*/
 void Pattern::debug(){

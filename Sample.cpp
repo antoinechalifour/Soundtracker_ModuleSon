@@ -51,6 +51,11 @@ void Sample::setSound(std::string name){
 	sound->loadSound(name);
 }
 
+void Sample::setRepeat(bool repeat){
+	this->repeat = repeat;
+	sound->setLoop(repeat);
+}
+
 /* AUTRES METHODES */
 void Sample::play(){
 	sound->play();

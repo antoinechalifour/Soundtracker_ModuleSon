@@ -42,7 +42,7 @@ public:
 	inline void setVolume(int volume){ this->volume = volume; };
 
 	inline bool isRepeat(){ return repeat; };
-	inline void setRepeat(bool repeat){ this->repeat = repeat; };
+	void setRepeat(bool repeat);
 
 	inline int getRepeatlen(){ return repeatlen; };
 	inline void setRepeatlen(int repeatlen){ this->repeatlen = repeatlen; };

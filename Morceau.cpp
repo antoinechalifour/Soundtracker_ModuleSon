@@ -21,7 +21,11 @@ void Morceau::setNom(std::string nom){
 	this->nom = nom;
 }
 
+
 /* Autres méthodes */
+/*
+Méthode lançant la lecture. L'unité de temps est la double croche (1 temps / 4 divisions).
+*/
 void Morceau::lecture(bool lect, int pattern, int division){
 
 }

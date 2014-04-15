@@ -36,24 +36,6 @@ Division& Piste::getDivision(int index){
 	return divisions[index];
 }
 
-/*
-Joue la piste de la première à la dernière division
-*/
-void Piste::play(int tempo){
-	play(tempo, 0);
-}
-
-/*
-Joue la piste à partir de la division donnée en paramètre.
-*/
-void Piste::play(int tempo, int div){
-	int ms = ((float)tempo) / 60.0 * 125;
-	for (int i = div; i < 64; i++){
-		divisions[i].play();
-		Sleep(ms);
-	}
-}
-
 /* Méthode de débug
 Affiche les informations connues sur la piste.*/
 void Piste::debug(){

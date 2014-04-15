@@ -34,8 +34,6 @@ public:
 
 	/* AUTRES METHODES */
 	Division& getDivision(int index);
-	void play(int tempo);
-	void play(int tempo, int div);
 
 	/* DEBUG */
 	void debug();
