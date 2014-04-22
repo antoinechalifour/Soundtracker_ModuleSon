@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "Position.h"
+#include "Division.h"
+#include "Pattern.h"
 
 /*
 Classe représentant le morceau.
@@ -14,6 +17,8 @@ private:
 	std::string nom;
 	int tempo;
 	int volume;
+	Position positions[128];
+	int indexLastPosition;
 
 public:
 	/* --------------- Méthodes --------------- */
@@ -32,6 +37,8 @@ public:
 
 	/* METHODES */
 	void lecture(bool, int, int);
+	void affecterPattern(int position, Pattern* pattern);
+	Division& getDivision(Pattern*, int, int);
 
 	/* DEBUG */
 	void debug();

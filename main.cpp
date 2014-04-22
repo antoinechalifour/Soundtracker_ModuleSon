@@ -10,12 +10,16 @@
 #include "Piste.h"
 #include "Pattern.h"
 #include "Position.h"
+#include "Morceau.h"
+
+#include "StException.h"
 
 using namespace std;
 
 #define QUANT 8
 
 void starwars(){
+	Morceau m;
 	Pattern p;
 	Sample s;
 	Sample s2;
@@ -23,7 +27,7 @@ void starwars(){
 	s.setSound("../../data/sample.wav");
 	s2.setSound("../../data/sample2.wav");
 	s3.setSound("../../data/setbass.wav");
-	s3.setRepeat(true);
+	//s3.setRepeat(true);
 
 
 	p.getPiste(0).getDivision(0 * QUANT).setSample(&s);
@@ -79,14 +83,10 @@ void starwars(){
 	p.getPiste(0).getDivision(6 * QUANT - 1).setNote(220);
 	p.getPiste(1).getDivision(6 * QUANT - 1).setSample(&s2);
 	p.getPiste(1).getDivision(6 * QUANT - 1).setSample(&s2);
-
-	for (int i = 0; i < 64; i++){
-		cout << "Division : " << i << endl;
-		p.getPiste(0).getDivision(i).play();
-		p.getPiste(1).getDivision(i).play();
-		p.getPiste(2).getDivision(i).play();
-		Sleep(75);
-	}
+	
+	m.affecterPattern(0, &p);
+	//m.getDivision(&p, 0, 6 * QUANT - 1).setNote(100);
+	m.lecture(true, 0, 5);
 }
 
 //========================================================================
@@ -174,7 +174,19 @@ int main( ){
 	}
 	p.play(96, 30);
 	*/
-	starwars();
+	//starwars();
+
+	Morceau m;
+	Sample s;
+	s.setSound("../../data/sample.wav");
+	Pattern p;
+	try{
+		m.affecterPattern(1, &p);
+	}
+	catch (StException e){
+		cout << e.getMsg()<<endl;
+	}
+
 	getchar();
 
 }

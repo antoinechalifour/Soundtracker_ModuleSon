@@ -1,7 +1,13 @@
 #include <iostream>
 #include "Piste.h"
+#include "StValueException.h"
 
 using namespace std;
+
+/*
+Compteur des pistes, permettant l'attribution des identifiants à la construction.
+*/
+int Piste::nbPistes = 0;
 
 /* CONSTRUCTEURS */
 /*
@@ -11,8 +17,11 @@ Constructeur par défaut. Initialise :
 */
 Piste::Piste():
 	solo(false),
-	mute(false)
-{}
+	mute(false),
+	id(nbPistes)
+{
+	nbPistes++;
+}
 
 /* OPERATEURS */
 /*
@@ -21,6 +30,7 @@ Opérateur d'affectation
 Piste& Piste::operator=(const Piste& p){
 	this->mute = p.mute;
 	this->solo = p.solo;
+	this->id = p.id;
 	for (int i = 0; i < 64; i++){
 		this->divisions[i] = p.divisions[i];
 	}
@@ -33,6 +43,7 @@ Piste& Piste::operator=(const Piste& p){
 Retourne une référence vers la division demandée. Permet l'affectation et le paramétrage de la division.
 */
 Division& Piste::getDivision(int index){
+	if (index < 0 || index > 63) throw StValueException("La division n'est pas valide. Veuillez saisir un entier entre 0 et 63");
 	return divisions[index];
 }
 

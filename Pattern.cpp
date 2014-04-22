@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Pattern.h"
+#include "StValueException.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ Pattern::Pattern():
 	id(nbPattern)
 {
 	setNom("Valeur par défaut");
+	nbPattern++;
 }
 
 /*
@@ -45,6 +47,7 @@ void Pattern::setNom(std::string nom){
 
 
 Piste& Pattern::getPiste(int index){
+	if (index < 0 || index > 7) throw StValueException("La piste fournie n'existe pas. Veuillez saisir un entier entre 1 et 8.");
 	return pistes[index];
 }
 

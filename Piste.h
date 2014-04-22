@@ -10,7 +10,8 @@ Une piste est caractérisée par :
 */
 class Piste{
 private:
-	//int id;
+	static int nbPistes;
+	int id;
 	bool mute;
 	bool solo;
 	Division divisions[64];
@@ -20,7 +21,7 @@ public:
 	Piste();
 
 	/* GETTERS ET SETTERS */
-	//inline int getId(){ return id; };
+	inline int getId(){ return id; };
 	//inline void setId(int id){ this->id = id; };
 
 	inline bool isMute(){ return mute; };
