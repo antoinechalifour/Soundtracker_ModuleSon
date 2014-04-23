@@ -22,6 +22,9 @@ public:
 	inline Pattern* getPattern(){ return pattern; };
 	void setPattern(Pattern* pattern);
 
+	/* METHODES STATIC */
+	static inline int getNbPositions(){ return nbPositions; };
+
 	/* DEBUG */
 	void debug();
 };

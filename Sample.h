@@ -56,6 +56,9 @@ public:
 	void play();
 	void play(int note, int volume);
 
+	/* METHODES STATIC */
+	static inline int getNbSamples(){ return nbSamples; };
+
 	/* DEBUG */
 	void debug();
 };

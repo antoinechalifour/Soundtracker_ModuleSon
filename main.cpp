@@ -85,8 +85,14 @@ void starwars(){
 	p.getPiste(1).getDivision(6 * QUANT - 1).setSample(&s2);
 	
 	m.affecterPattern(0, &p);
+	cout << "Nb samples : " << Sample::getNbSamples() << endl;
+	cout << "Nb Divisions : " << Division::getNbDivisions() << endl;
+	cout << "Nb Pistes : " << Piste::getNbPistes() << endl;
+	cout << "Nb patterns : " << Pattern::getNbPatterns() << endl;
+	cout << "Nb positions : " << Position::getNbPositions() << endl;
+
 	//m.getDivision(&p, 0, 6 * QUANT - 1).setNote(100);
-	m.lecture(true, 0, 5);
+	//m.lecture(true, 0, 5);
 }
 
 //========================================================================
@@ -174,7 +180,7 @@ int main( ){
 	}
 	p.play(96, 30);
 	*/
-	//starwars();
+	starwars();
 
 	Morceau m;
 	Sample s;

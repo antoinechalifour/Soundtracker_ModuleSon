@@ -33,6 +33,9 @@ public:
 	/* OPERATEURS */
 	Piste& operator=(const Piste&);
 
+	/* METHODES STATIC */
+	static inline int getNbPistes(){ return nbPistes; };
+
 	/* AUTRES METHODES */
 	Division& getDivision(int index);
 

@@ -31,6 +31,9 @@ public:
 
 	Piste& getPiste(int index);
 
+	/* METHODES STATIC */
+	static inline int getNbPatterns(){ return nbPattern; };
+
 	/* DEBUG */
 	void debug();
 };

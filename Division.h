@@ -38,6 +38,9 @@ public:
 	/* AUTRES METHODES */
 	void play();
 
+	/* METHODES STATIC */
+	static inline int getNbDivisions(){ return nbDivisions; };
+
 	/* DEBUG */
 	void debug();
 };
