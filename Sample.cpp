@@ -23,6 +23,7 @@ Sample::Sample():
 	nbSamples++;
 	setNom("Entrez un nom...");
 	sound = new ofSoundPlayer();
+	sound->setMultiPlay(true);
 }
 
 /*
@@ -67,6 +68,10 @@ void Sample::play(int note, int volume){
 	sound->setSpeed(sp);
 	sound->setVolume(vol);
 	sound->play();
+}
+
+void Sample::stop(){
+	sound->stop();
 }
 
 /* Méthode de débug

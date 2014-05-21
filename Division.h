@@ -32,11 +32,13 @@ public:
 	inline const Sample* getSample(){ return sample; };
 	void setSample(Sample* sample);
 
+	bool isRepeat();
+
 	/* OPERATEURS */
 	Division& operator=(const Division&);
 
 	/* AUTRES METHODES */
-	void play();
+	void play(bool);
 
 	/* METHODES STATIC */
 	static inline int getNbDivisions(){ return nbDivisions; };

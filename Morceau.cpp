@@ -1,7 +1,7 @@
 #include "Morceau.h"
 #include "StValueException.h"
 
-/*
+/**
 Constructeur par défaut. Initialise :
 - le tempo à 96
 - le volume à son maximum, 100
@@ -32,16 +32,38 @@ void Morceau::lecture(bool lect, int position, int division){
 	if (lect){
 		if (position < 0 || position > indexLastPosition) throw StValueException("La position demandée n'existe pas");
 		if (division < 0 || division > 63) throw StValueException("Le numéro de division fourni n'est pas valide. Veuillez saisir un entier entre 1 et 64");
+
+		/* GESTION DU REPEAT */
+		bool repeat[8];
+		int lastDiv[8];
+		for (int i = 0; i < 8; i++){
+			repeat[i] = positions[position].getPattern()->getPiste(i).getDivision(0).isRepeat();
+			lastDiv[i] = 0;
+		}
+
+		/* BOUCLE DE LECTURE */
+		/* POSITION */
 		for (int i = position; i <= indexLastPosition; i++){
+			/* DIVISION */
 			for (int j = division; j < 64; j++){
-				positions[i].getPattern()->getPiste(0).getDivision(j).play();
-				positions[i].getPattern()->getPiste(1).getDivision(j).play();
-				positions[i].getPattern()->getPiste(2).getDivision(j).play();
-				positions[i].getPattern()->getPiste(3).getDivision(j).play();
-				positions[i].getPattern()->getPiste(4).getDivision(j).play();
-				positions[i].getPattern()->getPiste(5).getDivision(j).play();
-				positions[i].getPattern()->getPiste(6).getDivision(j).play();
-				positions[i].getPattern()->getPiste(7).getDivision(j).play();
+				/* PISTE */
+				for (int k = 0; k < 8; k++){
+					/* ANNULER LE DERNIER REPEAT */
+					if (repeat[i] && positions[i].getPattern()->getPiste(k).getDivision(j).getSample() != NULL){
+						cout << "Arret de la division " << j << " de la piste " << k <<endl;
+						positions[i].getPattern()->getPiste(k).getDivision(lastDiv[k]).play(false);
+					}
+
+					/* INITIALISER LE NOUVEAU REPEAT*/
+					if (positions[i].getPattern()->getPiste(k).getDivision(j).isRepeat()){
+						cout << "Un nouveau repeat a été detecte division " << j << " de la piste " << k <<endl;
+						repeat[k] = true;
+						lastDiv[k] = j;
+					}
+
+					/* LANCER LA LECTURE */
+					positions[i].getPattern()->getPiste(k).getDivision(j).play(true);
+				}
 
 				Sleep(75);
 			}

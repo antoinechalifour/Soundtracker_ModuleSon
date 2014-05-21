@@ -44,9 +44,21 @@ Division& Division::operator=(const Division& d){
 	return *this;
 }
 
+bool Division::isRepeat(){
+	if (this->sample != NULL){
+		return sample->isRepeat();
+	}
+	else return false;
+}
+
 /* AUTRES METHODES */
-void Division::play(){
-	if (sample != NULL) sample->play(note, volume);
+void Division::play(bool p){
+	if (p && sample != NULL){
+		sample->play(note, volume);
+	}
+	else if (!p && sample != NULL){
+		sample->stop();
+	}
 }
 
 /* Méthode de débug

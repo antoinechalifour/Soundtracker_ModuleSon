@@ -55,6 +55,7 @@ public:
 	/* AUTRES METHODES */
 	void play();
 	void play(int note, int volume);
+	void stop();
 
 	/* METHODES STATIC */
 	static inline int getNbSamples(){ return nbSamples; };
