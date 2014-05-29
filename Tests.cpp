@@ -79,8 +79,8 @@ void testRepeat(){
 void testAccords(){
     StSample* s = new StSample;
     StSample* s2 = new StSample;
-    s->setSound("C:/Temp/guitarA.wav");
-    s2->setSound("C:/Temp/guitarF.wav");
+    s->setSound("C:/Temp/guitarD.wav");
+    s2->setSound("C:/Temp/guitarA.wav");
 
     cout<<"Debut de la lecture... "<<endl;
     s->play();
@@ -131,25 +131,25 @@ void testInit(){
 	p.debug();
 	*/
 	/* GAMME MAJEURE */
-	/*
-	Sample s;
-	s.setSound("../../data/sample.wav");
-	s.play();
-	Division divs[8];
+
+    StSample* s = new StSample;
+    s->setSound("C:/Temp/guitarA.wav");
+    s->play();
+    StDivision divs[8];
 	int note = 132;
 
 	for (int i = 0; i < 9; i++){
 	cout << note << endl;
-	divs[i].setSample(&s);
+    divs[i].setSample(s);
 	divs[i].setNote(note);
-	divs[i].play();
+    divs[i].play(true);
 	Sleep(300);
 	if (i==2 || i == 6)
 	note = note * 1.059463;
 	else
 	note = note * (1.059463*1.059463);
 	}
-	*/
+
 
 	/*
 	Sample s;

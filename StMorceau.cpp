@@ -72,7 +72,11 @@ void StMorceau::slot_play(){
         currentCompteur++;
         if(currentCompteur % 64 == 0) currentPosition ++;
     }
-    else timer->stop();
+    else {
+        cout<<"Fin de lecture"<<endl;
+        timer->stop();
+        cout<<"Timer stoppé"<<endl;
+    }
 }
 
 

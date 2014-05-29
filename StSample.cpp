@@ -66,15 +66,15 @@ void StSample::setRepeat(bool repeat){
  * ****************************************************************/
 void StSample::play(){
     cout<<"Lecture du sample... (0)"<<endl;
+    sound->stop();
 	sound->play();
 }
 
 void StSample::play(int note, int volume){
-    cout<<"Lecture du sample... (2)"<<endl;
 	float sp = ((float)note) / 440.0;
     sound->setPlaybackRate(sp);
     sound->setVolume(volume);
-    sound->play();
+    this->play();
 }
 
 void StSample::stop(){
