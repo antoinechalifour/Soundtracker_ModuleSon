@@ -5,8 +5,8 @@ ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, IHMSongEditorPan
     panel(panel),
     QObject(parent)
 {
-    panel->getMasterSlider()->setValue(50);
-    panel->getMasterSpinBox()->setValue(50);
+    panel->getMasterSlider()->setValue(100);
+    panel->getMasterSpinBox()->setValue(100);
     panel->getMasterSlider()->setMinimum(0);
     panel->getMasterSpinBox()->setMinimum(0);
     panel->getMasterSlider()->setMaximum(100);
@@ -19,6 +19,10 @@ ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, IHMSongEditorPan
     QObject::connect(panel->getPlayButton(), SIGNAL(clicked()), this, SLOT(play()));
     QObject::connect(panel->getStopButton(), SIGNAL(clicked()), this, SLOT(stop()));
     QObject::connect(panel->getPatternSpinBox(), SIGNAL(valueChanged(int)), this, SLOT(changerPattern(int)));
+
+    QObject::connect(panel->getMasterSlider(), SIGNAL(valueChanged(int)), this, SLOT(changerVolume(int)));
+    QObject::connect(panel->getMasterSpinBox(), SIGNAL(valueChanged(int)), this, SLOT(changerVolume(int)));
+    QObject::connect(panel->getTempoSpinBox(), SIGNAL(valueChanged(int)), this, SLOT(changerTempo(int)));
 }
 
 
@@ -39,4 +43,18 @@ void ControlleurSongEditor::changerPattern(int value){
     // try and catch affecter pattern : affectation impossible de la possition 36 si pas de 35
   // this->morceau->affecterPattern(this->mw->getSongEditor()->getPositionSpinBox()->value(),patterns[value]);
    cout << "affecterPattern(" << panel->getPositionSpinBox()->value()<< "," << value <<")" << endl;
+}
+
+void ControlleurSongEditor::changerTempo(int value){
+#ifdef STDEBUG
+    cout<<"ControlleurSongEditor::changerTempo - valeur : "<<value<<endl;
+#endif
+    modele->setTempo(value);
+}
+
+void ControlleurSongEditor::changerVolume(int value){
+#ifdef STDEBUG
+    cout<<"ControlleurSongEditor::changerVolume - valeur : "<<value<<endl;
+#endif
+    modele->setVolume(value);
 }

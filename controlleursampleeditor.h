@@ -9,15 +9,21 @@ class ControlleurSampleEditor : public QObject
 {
     Q_OBJECT
 private:
-    StSample* modele;
+    vector<StSample*> modele;
     IHMSampleEditor* panel;
+    StSample* current;
 
 public:
-    explicit ControlleurSampleEditor(StSample* modele, IHMSampleEditor* panel, QObject *parent = 0);
+    explicit ControlleurSampleEditor(vector<StSample*> modele, IHMSampleEditor* panel, QObject *parent = 0);
 
 signals:
 
 public slots:
+    void setSample(int);
+    void changerVolume(int);
+    void changerPitch(int);
+    void changerRepeat(bool);
+    void changerRepeatLen(int);
 
 };
 

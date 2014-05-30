@@ -4,8 +4,10 @@ Controleur::Controleur(IHMMainWindow* w,StMorceau* m):
     mw(w),
     morceau(m)
 {
+    samples.push_back(new StSample);
+    samples.push_back(new StSample);
     ctrlSongEditor = new ControlleurSongEditor(morceau, mw->getSongEditor());
-    ctrlSampleEditor = new ControlleurSampleEditor(NULL, mw->getSampleEditor());
+    ctrlSampleEditor = new ControlleurSampleEditor(samples, mw->getSampleEditor());
 
     connect(mw->getMenu()->getLoadSongButton(),SIGNAL(clicked()),this,SLOT(load()));
 }

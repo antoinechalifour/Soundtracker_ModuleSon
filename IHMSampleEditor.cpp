@@ -4,6 +4,8 @@ IHMSampleEditor::IHMSampleEditor(QWidget *parent) :
     QWidget(parent)
 {
     panelTitle= new QLabel("SampleEditor");
+    sampleName = new QLabel("Choix du sample : ");
+    sampleNo = new QSpinBox;
     volumeLabel= new QLabel("Volume :");
     volumeSlider = new QSlider(Qt::Horizontal);
     volumeSpinBox = new QSpinBox();
@@ -16,7 +18,8 @@ IHMSampleEditor::IHMSampleEditor(QWidget *parent) :
 
     boxSampleEdit = new QGridLayout(parent);
 
-    //boxSampleEdit->addWidget(panelTitle,0,0);
+    boxSampleEdit->addWidget(sampleName,0,0, 1, 3);
+    boxSampleEdit->addWidget(sampleNo, 0, 3);
     boxSampleEdit->addWidget(volumeLabel,1,0);
     boxSampleEdit->addWidget(volumeSlider,1,1,1,2);
     boxSampleEdit->addWidget(volumeSpinBox,1,3);

@@ -27,6 +27,8 @@
 #include <QUrl>
 #include <QVBoxLayout>
 
+#define STDEBUG 0
+
 using namespace std;
 
 #endif // DEBUG_H

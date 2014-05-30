@@ -31,6 +31,7 @@ public:
     QSpinBox* getPatternSpinBox();
     QSlider* getMasterSlider();
     QSpinBox* getMasterSpinBox();
+    inline QSpinBox* getTempoSpinBox(){ return tempoSpinBox; }
 signals:
 
 public slots:
