@@ -24,7 +24,17 @@ SOURCES += main.cpp\
     StPattern.cpp \
     StPosition.cpp \
     StSample.cpp \
-    StPiste.cpp
+    StPiste.cpp \
+    controleur.cpp \
+    IHMMainWindow.cpp \
+    IHMMenuPanel.cpp \
+    IHMPatternEditorPanel.cpp \
+    IHMPiste.cpp \
+    IHMSampleEditor.cpp \
+    IHMSongEditorPanel.cpp \
+    IHMDivision.cpp \
+    controlleursongeditor.cpp \
+    controlleursampleeditor.cpp
 
 HEADERS  += mainwindow.h \
     Tests.h \
@@ -37,4 +47,17 @@ HEADERS  += mainwindow.h \
     StPattern.h \
     StPiste.h \
     StPosition.h \
-    StSample.h
+    StSample.h \
+    controleur.h \
+    IHMMainWindow.h \
+    IHMMenuPanel.h \
+    IHMPatternEditorPanel.h \
+    IHMSampleEditor.h \
+    IHMPiste.h \
+    IHMSongEditorPanel.h \
+    IHMDivision.h \
+    controlleursongeditor.h \
+    controlleursampleeditor.h
+
+FORMS += \
+    mainwindow.ui

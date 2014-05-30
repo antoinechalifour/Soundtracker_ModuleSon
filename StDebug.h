@@ -4,13 +4,28 @@
 #include <iostream>
 #include <iostream>
 #include <windows.h>
-#include <QUrl>
-#include <QMultimedia>
+
+
+#include <QCheckBox>
+#include <QDebug>
+#include <QFileDialog>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMainWindow>
 #include <QMediaPlayer>
+#include <QMultimedia>
+#include <QObject>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QSlider>
+#include <QSpinBox>
 #include <QString>
 #include <QTimer>
-#include <QObject>
-#include <QDebug>
+#include <QUrl>
+#include <QVBoxLayout>
 
 using namespace std;
 

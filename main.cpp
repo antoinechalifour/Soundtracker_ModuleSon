@@ -1,15 +1,14 @@
-#include "mainwindow.h"
-#include "Tests.h"
+#include "IHMMainWindow.h"
 #include <QApplication>
-#include <iostream>
-
-using namespace std;
-
+#include <controleur.h>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    starwars();
-    cout<<"Fin du test"<<endl;
-
+    IHMMainWindow w;
+    StMorceau m;
+    new Controleur(&w,&m);
+    w.resize(1024,768);
+    w.setWindowTitle("SoundTracker");
+    w.show();
     return a.exec();
 }
