@@ -8,10 +8,9 @@ IHMPatternEditorPanel::IHMPatternEditorPanel(QWidget *parent) :
     num = new QVBoxLayout();
 
     for (int i = 0;  i < 8; i++){
-
-        boxPattern->addWidget(new IHMPiste(i+1));
+        pistes[i] = new IHMPiste(i+1);
+        boxPattern->addWidget(pistes[i]);
     }
 
     setLayout(boxPattern);
-
 }

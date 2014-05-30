@@ -10,8 +10,10 @@ class IHMPatternEditorPanel : public QWidget
 private:
     QVBoxLayout* num;
     QHBoxLayout* boxPattern;
+    IHMPiste* pistes[8];
 public:
     explicit IHMPatternEditorPanel(QWidget *parent = 0);
+    inline IHMPiste* getPiste(int index){ return pistes[index]; }
 
 signals:
 

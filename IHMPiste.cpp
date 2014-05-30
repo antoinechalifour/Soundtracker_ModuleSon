@@ -10,7 +10,8 @@ IHMPiste::IHMPiste(int numero, QWidget *parent) :
     boxPiste->addWidget(trackNum);
 
     for (int i = 0;  i < 64; i++){
-        boxPiste->addWidget(new IHMDivision(i+1));
+        divisions[i] = new IHMDivision(i+1);
+        boxPiste->addWidget(divisions[i]);
     }
 
     setLayout(boxPiste);

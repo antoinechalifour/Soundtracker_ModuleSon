@@ -45,6 +45,7 @@ public:
     inline int getVolume(){ return volume; }
     inline void setVolume(int volume){ this->volume = volume; }
     StDivision& getDivision(StPattern*, int, int);
+    inline int getLastPosition(){ return indexLastPosition+1; }
 
 	void lecture(bool, int, int);
     void affecterPattern(int position, StPattern* pattern);

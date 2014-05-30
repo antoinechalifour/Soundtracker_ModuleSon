@@ -8,6 +8,7 @@
 #include "StSample.h"
 #include "controlleursongeditor.h"
 #include "controlleursampleeditor.h"
+#include "controlleurpatterneditor.h"
 
 class Controleur : public QObject
 {
@@ -21,6 +22,7 @@ private:
 
     ControlleurSongEditor* ctrlSongEditor;
     ControlleurSampleEditor* ctrlSampleEditor;
+    ControlleurPatternEditor* ctrlPatternEditor;
 
 public:
     Controleur(IHMMainWindow *w,StMorceau *m);

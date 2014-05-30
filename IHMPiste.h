@@ -10,8 +10,10 @@ class IHMPiste : public QWidget
 private:
     QLabel* trackNum;
     QVBoxLayout* boxPiste;
+    IHMDivision* divisions[64];
 public:
     explicit IHMPiste(int numero,QWidget *parent = 0);
+    inline IHMDivision* getDivision(int index){ return divisions[index]; }
 
 signals:
 

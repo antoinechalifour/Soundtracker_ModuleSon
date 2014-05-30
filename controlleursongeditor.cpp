@@ -5,6 +5,7 @@ ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, IHMSongEditorPan
     panel(panel),
     QObject(parent)
 {
+    panel->getPositionSpinBox()->setMaximum(modele->getLastPosition());
     panel->getMasterSlider()->setValue(100);
     panel->getMasterSpinBox()->setValue(100);
     panel->getMasterSlider()->setMinimum(0);
@@ -40,8 +41,6 @@ void ControlleurSongEditor::stop(){
 
 
 void ControlleurSongEditor::changerPattern(int value){
-    // try and catch affecter pattern : affectation impossible de la possition 36 si pas de 35
-  // this->morceau->affecterPattern(this->mw->getSongEditor()->getPositionSpinBox()->value(),patterns[value]);
    cout << "affecterPattern(" << panel->getPositionSpinBox()->value()<< "," << value <<")" << endl;
 }
 
