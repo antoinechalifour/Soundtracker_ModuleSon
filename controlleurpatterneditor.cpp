@@ -1,7 +1,8 @@
 #include "controlleurpatterneditor.h"
 
-ControlleurPatternEditor::ControlleurPatternEditor(StMorceau* modele, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent):
+ControlleurPatternEditor::ControlleurPatternEditor(StMorceau* modele, vector<StSample*> samples, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent):
     modele(modele),
+    samples(samples),
     patterns(patterns),
     panel(panel),
     songpanel(songpanel),
@@ -9,7 +10,7 @@ ControlleurPatternEditor::ControlleurPatternEditor(StMorceau* modele, vector<StP
 {
     for(int i=0 ; i<8 ; i++){
         for(int j=0 ; j<64 ; j++){
-            ctrlsDivision[i][j] = new ControlleurDivision(i, j, panel->getPiste(i)->getDivision(j));
+            ctrlsDivision[i][j] = new ControlleurDivision(samples, i, j, panel->getPiste(i)->getDivision(j));
         }
     }
     setPattern(0);
@@ -40,7 +41,7 @@ void ControlleurPatternEditor::setPattern(int value){
             ctrlsDivision[i][j]->disconnect();
             if(tmp == NULL){
                 panel->getPiste(i)->getDivision(j)->getSampleText()->setValue(-1);
-                panel->getPiste(i)->getDivision(j)->getVolumeText()->setValue(0);
+                panel->getPiste(i)->getDivision(j)->getVolumeText()->setValue(4);
                 panel->getPiste(i)->getDivision(j)->getNoteText()->setText("---");
             }
             else{

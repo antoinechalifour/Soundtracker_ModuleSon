@@ -13,6 +13,7 @@ class ControlleurPatternEditor : public QObject
     Q_OBJECT
 private:
     vector<StPattern*> patterns;
+    vector<StSample*> samples;
     IHMPatternEditorPanel* panel;
     IHMSongEditorPanel* songpanel;
     StPattern* current;
@@ -20,7 +21,7 @@ private:
     ControlleurDivision* ctrlsDivision[8][64];
 
 public:
-    explicit ControlleurPatternEditor(StMorceau* modele, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent = 0);
+    explicit ControlleurPatternEditor(StMorceau* modele, vector<StSample*> samples, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent = 0);
 
 signals:
 

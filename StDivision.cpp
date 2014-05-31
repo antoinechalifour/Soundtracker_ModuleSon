@@ -83,11 +83,41 @@ QString StDivision::getNoteAsQString(){
             case FREQ_AS:
                 noteAsString = "A#";
                 break;
+            case FREQ_B:
+                noteAsString = "B";
+                break;
+            case FREQ_C:
+                noteAsString = "C";
+                break;
+            case FREQ_CS:
+                noteAsString = "C#";
+                break;
+            case FREQ_D:
+                noteAsString = "D";
+                break;
+            case FREQ_DS:
+                noteAsString = "D#";
+                break;
+            case FREQ_E:
+                noteAsString = "E";
+                break;
+            case FREQ_F:
+                noteAsString = "F";
+                break;
+            case FREQ_FS:
+                noteAsString = "F#";
+                break;
+            case FREQ_G:
+                noteAsString = "G";
+                break;
+            case FREQ_GS:
+                noteAsString = "G#";
+                break;
             default:
-                noteAsString = "N";
+                noteAsString = "NaN";
                 break;
             }
-            noteAsString.append(octave);
+            noteAsString.append((char)octave);
             return noteAsString;
         }
     }
