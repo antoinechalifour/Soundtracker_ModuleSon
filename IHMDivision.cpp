@@ -10,7 +10,7 @@ IHMDivision::IHMDivision(int numero, QWidget *parent) :
     sampleText = new QSpinBox();
     volumeText = new QSpinBox();
 
-    noteText->setMaxLength(2);
+    noteText->setMaxLength(3);
     noteText->setFixedWidth(40);
     sampleText->setMaximum(999);
     volumeText->setMaximum(100);

@@ -22,6 +22,9 @@ StSample::StSample():
 	repeat(false),
 	repeatlen(-1)
 {
+#ifdef STDEBUG
+    cout<<"Creation du sample id= "<<id<<endl;
+#endif
 	nbSamples++;
 	setNom("Entrez un nom...");
     sound = new QMediaPlayer;

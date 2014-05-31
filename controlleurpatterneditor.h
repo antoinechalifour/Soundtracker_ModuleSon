@@ -3,7 +3,10 @@
 
 #include "StDebug.h"
 #include "StPattern.h"
+#include "StMorceau.h"
 #include "IHMPatternEditorPanel.h"
+#include "IHMSongEditorPanel.h"
+#include "controlleurdivision.h"
 
 class ControlleurPatternEditor : public QObject
 {
@@ -11,10 +14,13 @@ class ControlleurPatternEditor : public QObject
 private:
     vector<StPattern*> patterns;
     IHMPatternEditorPanel* panel;
+    IHMSongEditorPanel* songpanel;
     StPattern* current;
+    StMorceau* modele;
+    ControlleurDivision* ctrlsDivision[8][64];
 
 public:
-    explicit ControlleurPatternEditor(vector<StPattern*>, IHMPatternEditorPanel* panel, QObject *parent = 0);
+    explicit ControlleurPatternEditor(StMorceau* modele, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent = 0);
 
 signals:
 

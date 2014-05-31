@@ -10,10 +10,11 @@ class ControlleurSongEditor : public QObject
     Q_OBJECT
 private:
     StMorceau* modele;
+    vector<StPattern*> patterns;
     IHMSongEditorPanel* panel;
 
 public:
-    explicit ControlleurSongEditor(StMorceau* modele, IHMSongEditorPanel* panel, QObject *parent = 0);
+    explicit ControlleurSongEditor(StMorceau* modele, vector<StPattern*> patterns, IHMSongEditorPanel* panel, QObject *parent = 0);
 
 signals:
 

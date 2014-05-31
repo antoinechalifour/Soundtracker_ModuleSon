@@ -14,6 +14,9 @@ private:
     QHBoxLayout* boxDiv;
 public:
     explicit IHMDivision(int numero,QWidget *parent = 0);
+    inline QLineEdit* getNoteText(){ return noteText; }
+    inline QSpinBox* getSampleText(){ return sampleText; }
+    inline QSpinBox* getVolumeText(){ return volumeText; }
 
 signals:
 

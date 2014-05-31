@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     IHMDivision.cpp \
     controlleursongeditor.cpp \
     controlleursampleeditor.cpp \
-    controlleurpatterneditor.cpp
+    controlleurpatterneditor.cpp \
+    controlleurdivision.cpp
 
 HEADERS  += mainwindow.h \
     Tests.h \
@@ -59,7 +60,8 @@ HEADERS  += mainwindow.h \
     IHMDivision.h \
     controlleursongeditor.h \
     controlleursampleeditor.h \
-    controlleurpatterneditor.h
+    controlleurpatterneditor.h \
+    controlleurdivision.h
 
 FORMS += \
     mainwindow.ui

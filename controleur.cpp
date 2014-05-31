@@ -6,9 +6,9 @@ Controleur::Controleur(IHMMainWindow* w,StMorceau* m):
 {
     samples.push_back(new StSample);
     samples.push_back(new StSample);
-    ctrlSongEditor = new ControlleurSongEditor(morceau, mw->getSongEditor());
+    ctrlSongEditor = new ControlleurSongEditor(morceau, patterns, mw->getSongEditor());
     ctrlSampleEditor = new ControlleurSampleEditor(samples, mw->getSampleEditor());
-    ctrlPatternEditor = new ControlleurPatternEditor(patterns, mw->getPatternEditor());
+    ctrlPatternEditor = new ControlleurPatternEditor(morceau, patterns, mw->getPatternEditor(), mw->getSongEditor());
 
     //connect(mw->getMenu()->getLoadSongButton(),SIGNAL(clicked()),this,SLOT(load()));
     QObject::connect(mw->getSongEditor()->getPatternSpinBox(), SIGNAL(valueChanged(int)), ctrlPatternEditor, SLOT(setPattern(int)));

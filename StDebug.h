@@ -29,6 +29,19 @@
 
 #define STDEBUG 0
 
+#define FREQ_C 65
+#define FREQ_CS 69
+#define FREQ_D 73
+#define FREQ_DS 78
+#define FREQ_E 82
+#define FREQ_F 87
+#define FREQ_FS 92
+#define FREQ_G 98
+#define FREQ_GS 104
+#define FREQ_A 110
+#define FREQ_AS 117
+#define FREQ_B 123
+
 using namespace std;
 
 #endif // DEBUG_H

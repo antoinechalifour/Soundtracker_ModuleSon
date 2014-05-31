@@ -1,10 +1,17 @@
 #include "controlleurpatterneditor.h"
 
-ControlleurPatternEditor::ControlleurPatternEditor(vector<StPattern*> patterns, IHMPatternEditorPanel* panel, QObject *parent):
+ControlleurPatternEditor::ControlleurPatternEditor(StMorceau* modele, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent):
+    modele(modele),
     patterns(patterns),
     panel(panel),
+    songpanel(songpanel),
     QObject(parent)
 {
+    for(int i=0 ; i<8 ; i++){
+        for(int j=0 ; j<64 ; j++){
+            ctrlsDivision[i][j] = new ControlleurDivision(i, j, panel->getPiste(i)->getDivision(j));
+        }
+    }
     setPattern(0);
 }
 
@@ -14,6 +21,7 @@ void ControlleurPatternEditor::setPattern(int value){
 #endif
     if(value < patterns.size()){
         //maj
+        current = patterns[value];
     }
     else{
         //creation;
@@ -21,10 +29,26 @@ void ControlleurPatternEditor::setPattern(int value){
         patterns.push_back(pattern);
         current = pattern;
     }
+    //Affectation du pattern
+    modele->affecterPattern(songpanel->getPositionSpinBox()->value(), current);
 
+    //Affichage des informations
     for(int i=0 ; i<8 ; i++){
-        for(int i=0 ; j<64 ; j++){
-            panel->getPiste(i)->getDivision(j);
+        for(int j=0 ; j<64 ; j++){
+            StSample* tmp = current->getPiste(i).getDivision(j).getSample();
+            ctrlsDivision[i][j]->setPattern(current);
+            ctrlsDivision[i][j]->disconnect();
+            if(tmp == NULL){
+                panel->getPiste(i)->getDivision(j)->getSampleText()->setValue(-1);
+                panel->getPiste(i)->getDivision(j)->getVolumeText()->setValue(0);
+                panel->getPiste(i)->getDivision(j)->getNoteText()->setText("---");
+            }
+            else{
+                panel->getPiste(i)->getDivision(j)->getSampleText()->setValue(current->getPiste(i).getDivision(j).getSample()->getId());
+                panel->getPiste(i)->getDivision(j)->getVolumeText()->setValue(current->getPiste(i).getDivision(j).getVolume());
+                panel->getPiste(i)->getDivision(j)->getNoteText()->setText(current->getPiste(i).getDivision(j).getNoteAsQString());
+            }
+            ctrlsDivision[i][j]->connect();
         }
     }
 }

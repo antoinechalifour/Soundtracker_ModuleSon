@@ -48,17 +48,29 @@ StDivision& StMorceau::getDivision(StPattern* pattern, int noPiste, int noDivisi
  * METHODE LECTURE
  * ****************************************************************/
 void StMorceau::lecture(bool lect, int position, int division){
-    cout<<"Fonction lecture... Initialisation du timer..."<<endl;
-    currentPosition = position;
-    currentDivision = division;
-    currentCompteur = 64 - division;
-    timer = new QTimer(0);
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(slot_play()));
-    timer->start(60000/(tempo * 4));
+    if(lect){
+#ifdef STDEBUG
+        cout<<"Lecture en cours, position= "<<position<<endl;
+#endif
+        currentPosition = position;
+        currentDivision = division;
+        currentCompteur = 64 - division;
+        timer = new QTimer(0);
+        QObject::connect(timer, SIGNAL(timeout()), this, SLOT(slot_play()));
+        timer->start(60000/(tempo * 4));
+    }
+    else{
+#ifdef STDEBUG
+        cout<<"Lecture stopée"<<endl;
+#endif
+        timer->stop();
+    }
 }
 
 void StMorceau::slot_play(){
-    cout<<"Fonction play... Position "<<currentPosition<<" Division "<<currentDivision<<endl;
+#ifdef STDEBUG
+    cout<<"Fonction play... Position= "<<currentPosition<<" - Division= "<<currentDivision<<endl;
+#endif
     if(positions[currentPosition].getPattern() != NULL){
         positions[currentPosition].getPattern()->getPiste(0).getDivision(currentDivision).play(true);
         positions[currentPosition].getPattern()->getPiste(1).getDivision(currentDivision).play(true);

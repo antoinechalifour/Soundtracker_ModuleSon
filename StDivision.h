@@ -30,10 +30,11 @@ public:
     inline void setNote(int note){ this->note = note; }
     inline int getVolume(){ return volume; }
     inline void setVolume(int volume){ this->volume = volume; }
-    inline const StSample* getSample(){ return sample; }
+    inline StSample* getSample(){ return sample; }
     void setSample(StSample* sample);
 	bool isRepeat();
 
+    QString getNoteAsQString();
     StDivision& operator=(const StDivision&);
 
 	void play(bool);
