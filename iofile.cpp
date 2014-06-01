@@ -20,20 +20,34 @@ IOFile::IOFile()
 void IOFile::serialize(StMorceau *morceau){
     QString fileName = morceau->getNom();
     QSettings ecriture(fileName, QSettings::IniFormat);
+    /*
+     * Ici on utilise les opérateurs<< qui s'appellent succesivement
+     */
     ecriture.setValue("StMorceau", qVariantFromValue(*morceau));
     ecriture.sync();
 }
 
 StMorceau* IOFile::unserialize(QString fileName){
     //a toi de compléter
+
+    /*
+     * Analogue, mais on utilise les opérateurs>>
+     */
     return NULL;
 }
 
 QDataStream& operator<<(QDataStream& out, const StMorceau& valeur){
+    /*
+     * On enregistre les infos du morceau
+     */
     out << valeur.getNom()
            << valeur.getTempo()
               << valeur.getVolume();
 
+    /*
+     * On enregistre ensuite les positions
+     * Ici, ça appelle operator<<(datastream, position)
+     */
     for(int i=0 ; i <128 ; i++){
         out<< valeur.getPosition(i);
     }
@@ -42,10 +56,20 @@ QDataStream& operator<<(QDataStream& out, const StMorceau& valeur){
 }
 
 QDataStream& operator<<(QDataStream& out, const StPosition& valeur){
+    /*
+     * On récupère le pattern stocké dans le pointeur et on le sauvegarde.
+     * Appelle operator(datastream, pattern)
+     */
+    StPattern pat = *(valeur.getPattern());
+    out<< valeur.getId()
+          <<pat;
     return out;
 }
 
 QDataStream& operator<<(QDataStream& out, const StPattern& valeur){
+    /* A toi de continuer Paulo !
+     */
+    out<<valeur.getID(); //etc....
     return out;
 }
 
