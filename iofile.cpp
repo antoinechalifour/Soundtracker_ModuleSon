@@ -19,10 +19,13 @@ IOFile::IOFile()
 
 void IOFile::serialize(StMorceau *morceau){
     QString fileName = morceau->getNom();
-    //fileName.
     QSettings ecriture(fileName, QSettings::IniFormat);
     ecriture.setValue("StMorceau", qVariantFromValue(*morceau));
     ecriture.sync();
+}
+
+void IOFile::unserialize(QString fileName){
+    //a toi de compléter
 }
 
 QDataStream& operator<<(QDataStream& out, const StMorceau& valeur){

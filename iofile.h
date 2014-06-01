@@ -14,6 +14,7 @@ class IOFile
 public:
     IOFile();
     void serialize(StMorceau* morceau);
+    StMorceau* unserialize(QString fileName);
 };
 
 Q_DECLARE_METATYPE(StMorceau)
