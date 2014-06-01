@@ -43,10 +43,6 @@ StPattern::StPattern(const StPattern& p):
 /*******************************************************************
  * GETTERS / SETTERS
  * ****************************************************************/
-QString StPattern::getNom(){
-	return nom;
-}
-
 void StPattern::setNom(QString nom){
 	this->nom = nom;
 }

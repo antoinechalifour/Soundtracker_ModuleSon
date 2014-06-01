@@ -24,19 +24,20 @@ void IOFile::serialize(StMorceau *morceau){
     ecriture.sync();
 }
 
-void IOFile::unserialize(QString fileName){
+StMorceau* IOFile::unserialize(QString fileName){
     //a toi de compléter
+    return NULL;
 }
 
 QDataStream& operator<<(QDataStream& out, const StMorceau& valeur){
     out << valeur.getNom()
            << valeur.getTempo()
               << valeur.getVolume();
-/*
+
     for(int i=0 ; i <128 ; i++){
         out<< valeur.getPosition(i);
     }
-    */
+
     return out;
 }
 

@@ -34,6 +34,8 @@ public:
         - le volume au maximum, 100
     */
     StDivision();
+
+    StDivision(const StDivision& copie);
     /**
       Opérateur d'affectation. Recopie les valeurs.
      * @brief operator =

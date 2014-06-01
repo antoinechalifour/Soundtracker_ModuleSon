@@ -28,6 +28,10 @@ StPiste::StPiste():
 	nbPistes++;
 }
 
+StPiste::StPiste(const StPiste &copie):
+    id(copie.id),
+    mute(copie.mute),
+    solo(copie.solo){}
 
 /*******************************************************************
  * OPERATEURS

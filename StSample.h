@@ -38,19 +38,27 @@ public:
     StSample();
     StSample(const StSample&);
 
-    static inline int getNbSamples(){ return nbSamples; }
-    inline int getId(){ return id; }
-    QString getNom();
     void setNom(QString nom);
-    inline int getVolume(){ return volume; }
     inline void setVolume(int volume){ this->volume = volume; }
-    inline bool isRepeat(){ return repeat; }
-	void setRepeat(bool repeat);
-    inline int getRepeatlen(){ return repeatlen; }
+    void setRepeat(bool repeat);
     inline void setRepeatlen(int repeatlen){ this->repeatlen = repeatlen; }
-    inline int getPitch(){ return pitch; }
     inline void setPitch(int pitch){ this->pitch = pitch; }
     void setSound(QString name);
+
+    static inline int getNbSamples(){ return nbSamples; }
+    inline int getId(){ return id; }
+    inline QString getNom(){ return nom; }
+    inline int getVolume(){ return volume; }
+    inline bool isRepeat(){ return repeat; }
+    inline int getRepeatlen(){ return repeatlen; }
+    inline int getPitch(){ return pitch; }
+
+    inline int getId() const { return id; }
+    inline QString getNom() const { return nom; }
+    inline int getVolume() const { return volume; }
+    inline bool isRepeat() const { return repeat; }
+    inline int getRepeatlen() const { return repeatlen; }
+    inline int getPitch() const { return pitch; }
 
 	void play();
 	void play(int note, int volume);

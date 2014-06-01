@@ -31,9 +31,13 @@ public:
 
     static inline int getNbPatterns(){ return nbPattern; }
     inline int getID(){ return id; }
-    QString getNom();
-    void setNom(QString nom);
+    inline QString getNom(){ return nom; }
     StPiste& getPiste(int index);
+
+    void setNom(QString nom);
+
+    inline int getID() const { return id; }
+    inline QString getNom() const { return nom; }
 
 	void debug();
 };

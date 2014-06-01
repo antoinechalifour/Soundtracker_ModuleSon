@@ -23,6 +23,9 @@ StPosition::StPosition():
 	nbPositions++;
 }
 
+StPosition::StPosition(const StPosition &copie):
+    id(copie.id),
+    pattern(copie.pattern){}
 
 /*******************************************************************
  * GETTERS / SETTERS

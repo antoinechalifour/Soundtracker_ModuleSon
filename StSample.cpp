@@ -46,10 +46,6 @@ StSample::StSample(const StSample& s):
 /*******************************************************************
  * GETTERS / SETTERS
  * ****************************************************************/
-QString StSample::getNom(){
-	return nom;
-}
-
 void StSample::setNom(QString nom){
 	this->nom = nom;
 }

@@ -22,6 +22,12 @@ StDivision::StDivision() :
 	sample = NULL;
 }
 
+StDivision::StDivision(const StDivision &copie):
+    id(copie.id),
+    note(copie.note),
+    volume(copie.volume),
+    sample(copie.sample){}
+
 /*******************************************************************
  * GETTERS / SETTERS
  * ****************************************************************/

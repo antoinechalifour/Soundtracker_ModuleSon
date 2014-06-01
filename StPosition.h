@@ -23,11 +23,15 @@ public:
      * METHODES
      * ****************************************************************/
     StPosition();
+    StPosition(const StPosition& copie);
+
+    void setPattern(StPattern* pattern);
 
     static inline int getNbPositions(){ return nbPositions; }
     inline int getId(){ return id; }
     inline StPattern* getPattern(){ return pattern; }
-    void setPattern(StPattern* pattern);
+
+    inline int getId() const { return id; }
 
 	void debug();
 };
