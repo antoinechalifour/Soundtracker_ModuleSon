@@ -7,13 +7,15 @@
 #include "IHMPatternEditorPanel.h"
 #include "IHMSongEditorPanel.h"
 #include "controlleurdivision.h"
+#include "listepattern.h"
+#include "listesample.h"
 
 class ControlleurPatternEditor : public QObject
 {
     Q_OBJECT
 private:
-    vector<StPattern*> patterns;
-    vector<StSample*> samples;
+    ListePattern* patterns;
+    ListeSample* samples;
     IHMPatternEditorPanel* panel;
     IHMSongEditorPanel* songpanel;
     StPattern* current;
@@ -21,7 +23,7 @@ private:
     ControlleurDivision* ctrlsDivision[8][64];
 
 public:
-    explicit ControlleurPatternEditor(StMorceau* modele, vector<StSample*> samples, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent = 0);
+    explicit ControlleurPatternEditor(StMorceau* modele, ListeSample* samples, ListePattern* patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent = 0);
 
 signals:
 

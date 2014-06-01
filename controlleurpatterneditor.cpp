@@ -1,6 +1,6 @@
 #include "controlleurpatterneditor.h"
 
-ControlleurPatternEditor::ControlleurPatternEditor(StMorceau* modele, vector<StSample*> samples, vector<StPattern*> patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent):
+ControlleurPatternEditor::ControlleurPatternEditor(StMorceau* modele, ListeSample* samples, ListePattern* patterns, IHMPatternEditorPanel* panel, IHMSongEditorPanel* songpanel, QObject *parent):
     modele(modele),
     samples(samples),
     patterns(patterns),
@@ -20,14 +20,14 @@ void ControlleurPatternEditor::setPattern(int value){
 #ifdef STDEBUG
     cout<<"ControlleurPatternEditor::setPattern - valeur : "<<value<<endl;
 #endif
-    if(value < patterns.size()){
+    if(value < patterns->size()){
         //maj
-        current = patterns[value];
+        current = patterns->at(value);
     }
     else{
         //creation;
         StPattern* pattern = new StPattern;
-        patterns.push_back(pattern);
+        patterns->push_back(pattern);
         current = pattern;
     }
     //Affectation du pattern

@@ -4,17 +4,18 @@
 #include "StDebug.h"
 #include "StSample.h"
 #include "IHMSampleEditor.h"
+#include "listesample.h"
 
 class ControlleurSampleEditor : public QObject
 {
     Q_OBJECT
 private:
-    vector<StSample*> modele;
+    ListeSample* modele;
     IHMSampleEditor* panel;
     StSample* current;
 
 public:
-    explicit ControlleurSampleEditor(vector<StSample*> modele, IHMSampleEditor* panel, QObject *parent = 0);
+    explicit ControlleurSampleEditor(ListeSample* modele, IHMSampleEditor* panel, QObject *parent = 0);
 
 signals:
 
@@ -24,6 +25,7 @@ public slots:
     void changerPitch(int);
     void changerRepeat(bool);
     void changerRepeatLen(int);
+    void updateNewSample();
 
 };
 

@@ -1,6 +1,6 @@
 #include "controlleursongeditor.h"
 
-ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, vector<StPattern*> patterns, IHMSongEditorPanel* panel, QObject *parent) :
+ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, ListePattern* patterns, IHMSongEditorPanel* panel, QObject *parent) :
     QObject(parent),
     modele(modele),
     patterns(patterns),
@@ -19,7 +19,6 @@ ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, vector<StPattern
 
     QObject::connect(panel->getMasterSlider(), SIGNAL(valueChanged(int)), panel->getMasterSpinBox(), SLOT(setValue(int)));
     QObject::connect(panel->getMasterSpinBox(), SIGNAL(valueChanged(int)), panel->getMasterSlider(), SLOT(setValue(int)));
-    //QObject::connect(panel->getPatternSpinBox(), SIGNAL(valueChanged(int)), this, SLOT(changerPattern(int)));
     QObject::connect(panel->getPlayButton(), SIGNAL(clicked()), this, SLOT(play()));
     QObject::connect(panel->getStopButton(), SIGNAL(clicked()), this, SLOT(stop()));
 
@@ -47,7 +46,7 @@ void ControlleurSongEditor::changerPattern(int value){
 #ifdef STDEBUG
     cout<<"ControlleurSongEditor::changerPattern - valeur : "<<value<<endl;
 #endif
-    StPattern* tmp = patterns[value];
+    StPattern* tmp = patterns->at(value);
     modele->affecterPattern(panel->getPositionSpinBox()->value(), tmp);
 }
 

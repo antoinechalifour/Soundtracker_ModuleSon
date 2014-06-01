@@ -5,6 +5,7 @@
 #include "IHMDivision.h"
 #include "StPattern.h"
 #include "StSample.h"
+#include "listesample.h"
 
 class ControlleurDivision : public QObject
 {
@@ -14,10 +15,10 @@ private:
     int division;
     IHMDivision* panel;
     StPattern* modele;
-    vector<StSample*> samples;
+    ListeSample* samples;
 
 public:
-    explicit ControlleurDivision(vector<StSample*> samples, int piste, int division, IHMDivision* panel, QObject *parent = 0);
+    explicit ControlleurDivision(ListeSample* samples, int piste, int division, IHMDivision* panel, QObject *parent = 0);
     inline void setPattern(StPattern* pattern){
         this->modele = pattern;
     }

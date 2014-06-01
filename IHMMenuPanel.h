@@ -7,15 +7,18 @@ class IHMMenuPanel : public QWidget
 {
     Q_OBJECT
 private:
-    QPushButton*  LoadSongButton;
-    QPushButton*  LoadSampleButton;
-    QPushButton*  SaveSongButton;
-    QPushButton*  NewSongButton;
+    QPushButton*  loadSongButton;
+    QPushButton*  loadSampleButton;
+    QPushButton*  saveSongButton;
+    QPushButton*  newSongButton;
     QVBoxLayout* boxMenu;
 
 public:
     explicit IHMMenuPanel(QWidget *parent = 0);
-    QPushButton* getLoadSongButton();
+    inline QPushButton* getLoadSongButton(){ return loadSongButton; }
+    inline QPushButton* getLoadSampleButton(){ return loadSampleButton; }
+    inline QPushButton* getSaveSongButton(){ return saveSongButton; }
+    inline QPushButton* getNewSongButton(){ return newSongButton; }
 signals:
 
 public slots:

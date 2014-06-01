@@ -11,15 +11,10 @@ Controleur::Controleur(IHMMainWindow* w,StMorceau* m):
 
     samples.push_back(s);
     samples.push_back(s2);
-    ctrlSongEditor = new ControlleurSongEditor(morceau, patterns, mw->getSongEditor());
-    ctrlSampleEditor = new ControlleurSampleEditor(samples, mw->getSampleEditor());
-    ctrlPatternEditor = new ControlleurPatternEditor(morceau, samples, patterns, mw->getPatternEditor(), mw->getSongEditor());
+    ctrlSongEditor = new ControlleurSongEditor(morceau, &patterns, mw->getSongEditor());
+    ctrlSampleEditor = new ControlleurSampleEditor(&samples, mw->getSampleEditor());
+    ctrlPatternEditor = new ControlleurPatternEditor(morceau, &samples, &patterns, mw->getPatternEditor(), mw->getSongEditor());
+    ctrlMenu = new ControlleurMenu(&samples, morceau, mw);
 
-    //connect(mw->getMenu()->getLoadSongButton(),SIGNAL(clicked()),this,SLOT(load()));
     QObject::connect(mw->getSongEditor()->getPatternSpinBox(), SIGNAL(valueChanged(int)), ctrlPatternEditor, SLOT(setPattern(int)));
-}
-
-
-void Controleur::load(){
-    QString fileName = QFileDialog::getOpenFileName(mw,tr("MonTitre"),"Ordinateur", tr("Image Files (*.png *.jpg *.bmp)"));
 }

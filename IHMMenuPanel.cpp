@@ -4,24 +4,18 @@
 IHMMenuPanel::IHMMenuPanel(QWidget *parent) :
     QWidget(parent)
 {
-    LoadSongButton= new QPushButton("Load Song");
-    LoadSampleButton= new QPushButton("Load Sample");
-    SaveSongButton= new QPushButton("Save Song");
-    NewSongButton= new QPushButton("New Song");
+    loadSongButton= new QPushButton("Load Song");
+    loadSampleButton= new QPushButton("Load Sample");
+    saveSongButton= new QPushButton("Save Song");
+    newSongButton= new QPushButton("New Song");
 
     boxMenu = new QVBoxLayout(parent);
 
-    boxMenu->addWidget(LoadSongButton);
-    boxMenu->addWidget(LoadSampleButton);
-    boxMenu->addWidget(SaveSongButton);
-    boxMenu->addWidget(NewSongButton);
-
-
+    boxMenu->addWidget(loadSongButton);
+    boxMenu->addWidget(loadSampleButton);
+    boxMenu->addWidget(saveSongButton);
+    boxMenu->addWidget(newSongButton);
 
     setLayout(boxMenu);
 
-}
-
-QPushButton* IHMMenuPanel::getLoadSongButton(){
-    return LoadSongButton;
 }

@@ -9,6 +9,9 @@
 #include "controlleursongeditor.h"
 #include "controlleursampleeditor.h"
 #include "controlleurpatterneditor.h"
+#include "controlleurmenu.h"
+#include "listesample.h"
+#include "listepattern.h"
 
 class Controleur : public QObject
 {
@@ -17,18 +20,18 @@ private:
     IHMMainWindow* mw;
 
     StMorceau* morceau;
-    std::vector<StPattern*> patterns;
-    std::vector<StSample*> samples;
+    ListePattern patterns;
+    ListeSample samples;
 
     ControlleurSongEditor* ctrlSongEditor;
     ControlleurSampleEditor* ctrlSampleEditor;
     ControlleurPatternEditor* ctrlPatternEditor;
+    ControlleurMenu* ctrlMenu;
 
 public:
     Controleur(IHMMainWindow *w,StMorceau *m);
 
 public slots:
-    void load();
 
 };
 

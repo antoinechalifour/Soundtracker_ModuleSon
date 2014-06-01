@@ -1,6 +1,6 @@
 #include "controlleursampleeditor.h"
 
-ControlleurSampleEditor::ControlleurSampleEditor(vector<StSample*> modele, IHMSampleEditor* panel, QObject *parent) :
+ControlleurSampleEditor::ControlleurSampleEditor(ListeSample* modele, IHMSampleEditor* panel, QObject *parent) :
     modele(modele),
     panel(panel),
     QObject(parent)
@@ -17,7 +17,7 @@ ControlleurSampleEditor::ControlleurSampleEditor(vector<StSample*> modele, IHMSa
     panel->getPitchSpinBox()->setMinimum(-50);
     panel->getPitchSpinBox()->setMaximum(50);
 
-    if(modele.empty()){
+    if(modele->empty()){
         panel->getVolumeSlider()->setValue(100);
         panel->getVolumeSpinBox()->setValue(100);
 
@@ -41,13 +41,15 @@ ControlleurSampleEditor::ControlleurSampleEditor(vector<StSample*> modele, IHMSa
     QObject::connect(panel->getPitchSpinBox(), SIGNAL(valueChanged(int)), this, SLOT(changerPitch(int)));
     QObject::connect(panel->getRepeatCheckBox(), SIGNAL(clicked(bool)), this, SLOT(changerRepeat(bool)));
     QObject::connect(panel->getRepeatSpinBox(), SIGNAL(valueChanged(int)), this, SLOT(changerRepeatLen(int)));
+
+    QObject::connect(modele, SIGNAL(changed()), this, SLOT(updateNewSample()));
 }
 
 void ControlleurSampleEditor::setSample(int value){
 #ifdef STDEBUG
     cout<<"ControlleurSampleEditor::setSample - valeur : "<<value<<endl;
 #endif
-    current = modele[value];
+    current = modele->at(value);
     panel->getVolumeSlider()->setValue(current->getVolume());
     panel->getVolumeSpinBox()->setValue(current->getVolume());
 
@@ -84,4 +86,11 @@ void ControlleurSampleEditor::changerRepeatLen(int value){
     cout<<"ControlleurSampleEditor::changerRepeatLen - valeur : "<<value<<endl;
 #endif
     current->setRepeatlen(value);
+}
+
+void ControlleurSampleEditor::updateNewSample(){
+#ifdef STDEBUG
+    cout<<"ControlleurSampleEditor::updateNewSample"<<endl;
+#endif
+    panel->getSampleNo()->setMaximum(modele->size());
 }

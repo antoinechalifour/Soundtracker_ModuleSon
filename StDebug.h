@@ -32,6 +32,7 @@
 #include <QTimer>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QVector>
 
 #define STDEBUG
 

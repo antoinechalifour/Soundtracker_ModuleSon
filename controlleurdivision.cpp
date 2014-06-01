@@ -1,6 +1,6 @@
 #include "controlleurdivision.h"
 
-ControlleurDivision::ControlleurDivision(vector<StSample*> samples, int piste, int division, IHMDivision* panel, QObject *parent) :
+ControlleurDivision::ControlleurDivision(ListeSample* samples, int piste, int division, IHMDivision* panel, QObject *parent) :
     samples(samples),
     piste(piste),
     division(division),
@@ -62,7 +62,7 @@ void ControlleurDivision::changerNote(QString value){
 #endif
         panel->getVolumeText()->setValue(10);
         modele->getPiste(piste).getDivision(division).setNote(freq);
-        modele->getPiste(piste).getDivision(division).setSample(samples[panel->getSampleText()->value()]);
+        modele->getPiste(piste).getDivision(division).setSample(samples->at(panel->getSampleText()->value()));
     }
 }
 
@@ -70,7 +70,7 @@ void ControlleurDivision::changerSample(int value){
 #ifdef STDEBUG
     cout<<"ControlleurDivision(piste="<<piste<<" div="<<division<<")::changerSample - valeur : "<<value<<endl;
 #endif
-    modele->getPiste(piste).getDivision(division).setSample(samples[value]);
+    modele->getPiste(piste).getDivision(division).setSample(samples->at(value));
 }
 
 void ControlleurDivision::changerVolume(int value){

@@ -4,17 +4,18 @@
 #include "StDebug.h"
 #include "StMorceau.h"
 #include "IHMSongEditorPanel.h"
+#include "listepattern.h"
 
 class ControlleurSongEditor : public QObject
 {
     Q_OBJECT
 private:
     StMorceau* modele;
-    vector<StPattern*> patterns;
+    ListePattern* patterns;
     IHMSongEditorPanel* panel;
 
 public:
-    explicit ControlleurSongEditor(StMorceau* modele, vector<StPattern*> patterns, IHMSongEditorPanel* panel, QObject *parent = 0);
+    explicit ControlleurSongEditor(StMorceau* modele, ListePattern* patterns, IHMSongEditorPanel* panel, QObject *parent = 0);
 
 signals:
 
