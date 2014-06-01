@@ -39,15 +39,21 @@ public:
      * METHODES
      * ****************************************************************/
     StMorceau();
+    StMorceau(const StMorceau& copie);
 
-    QString getNom();
     void setNom(QString);
-    inline int getTempo(){ return tempo; }
+    inline QString getNom() { return nom; }
+    inline int getTempo() { return tempo; }
     inline void setTempo(int tempo){ this->tempo = tempo; }
-    inline int getVolume(){ return volume; }
+    inline int getVolume() { return volume; }
     inline void setVolume(int volume){ this->volume = volume; }
+    inline StPosition& getPosition(int i){ return positions[i]; }
     StDivision& getDivision(StPattern*, int, int);
     inline int getLastPosition(){ return indexLastPosition+1; }
+
+    inline QString getNom() const { return nom; }
+    inline int getTempo() const { return tempo; }
+    inline int getVolume() const { return volume; }
 
     /**
       Lis le morceau (bool=true) à partir de la position et de la division données.
@@ -70,6 +76,8 @@ public:
 	void debug();
 
 signals:
+    void slot_indexLastPositionChanged();
+
 public slots:
     /**
       Lance la lecture (utilise QTimer).

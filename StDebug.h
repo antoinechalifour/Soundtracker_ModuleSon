@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <windows.h>
+#include <stdio.h>
 
 #include <QCheckBox>
 #include <QDebug>
@@ -29,8 +30,11 @@
 #include <QSlider>
 #include <QSpinBox>
 #include <QString>
+#include <QSettings>
+#include <QSoundEffect>
 #include <QTimer>
 #include <QUrl>
+#include <QVariant>
 #include <QVBoxLayout>
 #include <QVector>
 

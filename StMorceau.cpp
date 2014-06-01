@@ -15,24 +15,29 @@ StMorceau::StMorceau():
 	volume(100),
 	indexLastPosition(-1)
 {
-	//setNom("Morceau...");
+    setNom("Morceau...");
 }
+
+StMorceau::StMorceau(const StMorceau &copie):
+    tempo(copie.tempo),
+    volume(copie.volume),
+    indexLastPosition(copie.indexLastPosition),
+    nom(copie.nom){}
 
 
 /*******************************************************************
  * GETTERS / SETTERS
  * ****************************************************************/
-QString StMorceau::getNom(){
-	return nom;
-}
-
 void StMorceau::setNom(QString nom){
 	this->nom = nom;
 }
 
 void StMorceau::affecterPattern(int position, StPattern* pattern){
     if (position > indexLastPosition + 1 || position < 0) throw StValueException("La position n'est pas valide.");
-    if (position > indexLastPosition) indexLastPosition = position;
+    if (position > indexLastPosition) {
+        indexLastPosition = position;
+        slot_indexLastPositionChanged();
+    }
     positions[position].setPattern(pattern);
 }
 

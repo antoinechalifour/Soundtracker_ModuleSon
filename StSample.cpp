@@ -59,6 +59,7 @@ void StSample::setSound(QString name){
     cout<<"Création de l'url"<<endl;
     this->setNom(name);
     sound->setMedia(QUrl::fromLocalFile(name));
+    //sound->setSource(QUrl::fromLocalFile(name));
 }
 
 void StSample::setRepeat(bool repeat){

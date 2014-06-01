@@ -29,6 +29,7 @@ private:
 	int repeatlen;
 	int pitch;
     QMediaPlayer *sound;
+    //QSoundEffect* sound;
 
 public:
     /*******************************************************************

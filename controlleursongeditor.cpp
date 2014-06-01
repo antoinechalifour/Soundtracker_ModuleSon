@@ -6,8 +6,9 @@ ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, ListePattern* pa
     patterns(patterns),
     panel(panel)
 {
-    panel->getPositionSpinBox()->setMaximum(modele->getLastPosition());
+    panel->getPositionSpinBox()->setMaximum(modele->getLastPosition()+1);
     panel->getTempoSpinBox()->setValue(96);
+    panel->getTempoSpinBox()->setMaximum(350);
     panel->getMasterSlider()->setValue(100);
     panel->getMasterSpinBox()->setValue(100);
     panel->getMasterSlider()->setMinimum(0);
@@ -62,4 +63,8 @@ void ControlleurSongEditor::changerVolume(int value){
     cout<<"ControlleurSongEditor::changerVolume - valeur : "<<value<<endl;
 #endif
     modele->setVolume(value);
+}
+
+void ControlleurSongEditor::updatePosition(){
+    panel->getPositionSpinBox()->setMaximum(modele->getLastPosition());
 }

@@ -39,7 +39,8 @@ SOURCES += main.cpp\
     controlleurdivision.cpp \
     controlleurmenu.cpp \
     listesample.cpp \
-    listepattern.cpp
+    listepattern.cpp \
+    iofile.cpp
 
 HEADERS  += mainwindow.h \
     Tests.h \
@@ -67,7 +68,8 @@ HEADERS  += mainwindow.h \
     controlleurdivision.h \
     controlleurmenu.h \
     listesample.h \
-    listepattern.h
+    listepattern.h \
+    iofile.h
 
 FORMS += \
     mainwindow.ui

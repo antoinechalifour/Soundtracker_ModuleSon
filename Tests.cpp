@@ -254,3 +254,10 @@ void testTimer(){
     StMorceau* m = new StMorceau;
     m->lecture(true, 0, 0);
 }
+
+void serialize(){
+    StMorceau m;
+    m.setNom("TestMorceau.st");
+    IOFile iofile;
+    iofile.serialize(&m);
+}

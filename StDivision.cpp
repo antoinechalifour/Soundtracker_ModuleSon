@@ -69,7 +69,7 @@ QString StDivision::getNoteAsQString(){
         int freq = notes[i];
         if(note % freq == 0){
             QString noteAsString;
-            int octave = (note / freq) - 1;
+            int octave = (note / freq) - 2;
             switch(freq){
             case FREQ_A:
                 noteAsString = "A";
@@ -111,7 +111,10 @@ QString StDivision::getNoteAsQString(){
                 noteAsString = "NaN";
                 break;
             }
-            noteAsString.append((char)octave);
+            char c[3];
+            sprintf(c, "%d", octave);
+            noteAsString.append(c);
+            cout<<"Char octave : "<<c<<endl;
             return noteAsString;
         }
     }

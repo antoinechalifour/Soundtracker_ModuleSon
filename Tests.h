@@ -8,6 +8,7 @@
 #include "StException.h"
 #include "StNullException.h"
 #include "StValueException.h"
+#include "iofile.h"
 
 #define QUANT 8
 #define OCT 2
@@ -19,3 +20,5 @@ void testInit();
 void composure();
 void testSamples();
 void testTimer();
+
+void serialize();

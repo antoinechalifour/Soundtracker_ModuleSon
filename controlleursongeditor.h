@@ -25,6 +25,7 @@ public slots:
     void changerPattern(int value);
     void changerTempo(int value);
     void changerVolume(int value);
+    void updatePosition();
 
 };
 
