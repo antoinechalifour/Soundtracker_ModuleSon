@@ -12,6 +12,8 @@ Un sample est caractérisé par :
 - repeat : booléen (à lire en boucle ou pas)
 - repeatlen : la longueur à partie de laquelle il doit être répété
 - pitch : sa hauteur (en hertz)
+
+ *@author Antoine
 */
 
 class StSample{

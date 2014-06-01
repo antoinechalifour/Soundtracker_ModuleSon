@@ -28,11 +28,17 @@ void ControlleurDivision::disconnect(){
     QObject::disconnect(panel->getNoteText(), SIGNAL(textChanged(QString)), this, SLOT(changerNote(QString)));
 }
 
-void ControlleurDivision::changerNote(QString note){
+void ControlleurDivision::changerNote(QString value){
 #ifdef STDEBUG
-    cout<<"ControlleurDivision(piste="<<piste<<" div="<<division<<")::changerNote - valeur : "<<note.toStdString()<<endl;
+    cout<<"ControlleurDivision(piste="<<piste<<" div="<<division<<")::changerNote - valeur : "<<value.toStdString()<<endl;
 #endif
     int freq=-1;
+    QString note;
+
+    QString octave = value.right(1);
+    if(value.size()==2) note = value.left(1);
+    else note = value.left(2);
+
     if(note.toStdString() == "A") freq= FREQ_A;
     else if(note.toStdString() == "A#") freq= FREQ_AS;
     else if(note.toStdString() == "B") freq= FREQ_B;
@@ -46,11 +52,17 @@ void ControlleurDivision::changerNote(QString note){
     else if(note.toStdString() == "G") freq= FREQ_G;
     else if(note.toStdString() == "G#") freq= FREQ_GS;
 
-    if(freq != -1) {
+    if(freq != -1 && octave.size() == 1) {
+        int octaveInt = octave.toInt();
+        for(int i=0 ; i< octaveInt ; i++){
+            freq *= 2;
+        }
 #ifdef STDEBUG
         cout<<"Modification de la note - freq= "<<freq<<endl;
 #endif
+        panel->getVolumeText()->setValue(10);
         modele->getPiste(piste).getDivision(division).setNote(freq);
+        modele->getPiste(piste).getDivision(division).setSample(samples[panel->getSampleText()->value()]);
     }
 }
 

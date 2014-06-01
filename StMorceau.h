@@ -12,6 +12,8 @@ Un morceau est caractérisé par :
 - nom : son nom
 - tempo : son tempo (supérieur à 0)
 - volume son volume (compris entre 1 et 100)
+
+ *@author Antoine
 */
 
 class StMorceau : public QObject{
@@ -47,13 +49,32 @@ public:
     StDivision& getDivision(StPattern*, int, int);
     inline int getLastPosition(){ return indexLastPosition+1; }
 
-	void lecture(bool, int, int);
+    /**
+      Lis le morceau (bool=true) à partir de la position et de la division données.
+      Stop la lecture (bool=false).
+     * @brief lecture
+     * @param lect lecture/stop
+     * @param position la position de départ
+     * @param division la division de départ
+     */
+    void lecture(bool lect, int position, int division);
+
+    /**
+      Affecte un pattern à une position donnée.
+     * @brief affecterPattern
+     * @param position le numéro de position
+     * @param pattern un pointeur vers le pattern.
+     */
     void affecterPattern(int position, StPattern* pattern);
 
 	void debug();
 
 signals:
 public slots:
+    /**
+      Lance la lecture (utilise QTimer).
+     * @brief slot_play
+     */
     void slot_play();
 };
 #endif

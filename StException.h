@@ -3,6 +3,11 @@
 
 #include "StDebug.h"
 
+/**
+  Classe mère des exceptions de Soundtracker.
+ * @brief The StException class
+ * @author Antoine
+ */
 class StException{
 protected:
 private:

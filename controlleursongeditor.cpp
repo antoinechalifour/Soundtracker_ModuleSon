@@ -7,6 +7,7 @@ ControlleurSongEditor::ControlleurSongEditor(StMorceau* modele, vector<StPattern
     panel(panel)
 {
     panel->getPositionSpinBox()->setMaximum(modele->getLastPosition());
+    panel->getTempoSpinBox()->setValue(96);
     panel->getMasterSlider()->setValue(100);
     panel->getMasterSpinBox()->setValue(100);
     panel->getMasterSlider()->setMinimum(0);

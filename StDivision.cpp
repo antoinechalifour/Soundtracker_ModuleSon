@@ -13,12 +13,6 @@ int StDivision::nbDivisions = 0;
 /*******************************************************************
  * CONSTRUCTEURS
  * ****************************************************************/
-/**
-Constructeur par defaut. Initialise :
-- l'identifiant en utilisant le nb de division
-- la note à LA (440hZ)
-- le volume au maximum, 100
-*/
 StDivision::StDivision() :
 	id(nbDivisions),
 	note(440),
@@ -127,6 +121,9 @@ QString StDivision::getNoteAsQString(){
  * METHODES LECTURE
  * ****************************************************************/
 void StDivision::play(bool p){
+#ifdef STDEBUG
+    cout<<"StDivision::play - bool= "<<p<<", note= "<<note<<", volume= "<<volume<<endl;
+#endif
 	if (p && sample != NULL){
 		sample->play(note, volume);
 	}

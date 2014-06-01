@@ -30,9 +30,6 @@ IHMSampleEditor::IHMSampleEditor(QWidget *parent) :
     boxSampleEdit->addWidget(repeatLenLabel,4,0);
     boxSampleEdit->addWidget(repeatSpinBox,4,1);
 
-
     setLayout(boxSampleEdit);
-
     setMaximumWidth(250);
-
 }

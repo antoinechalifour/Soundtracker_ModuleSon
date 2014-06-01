@@ -13,7 +13,7 @@ IHMDivision::IHMDivision(int numero, QWidget *parent) :
     noteText->setMaxLength(3);
     noteText->setFixedWidth(40);
     sampleText->setMaximum(999);
-    volumeText->setMaximum(100);
+    volumeText->setMaximum(10);
 
     boxDiv = new QHBoxLayout(parent);
     boxDiv->addWidget(divNum);

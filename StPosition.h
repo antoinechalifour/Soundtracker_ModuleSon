@@ -4,7 +4,9 @@
 #include "StPattern.h"
 
 /**
-Une position représente un bloc : une séquence du morceau. Un pattern est affecté à un bloc. Ce même pattern peut être affecté à plusieurs blocs.
+Une position représente un bloc : une séquence du morceau. Un pattern est affecté à un bloc.
+Ce même pattern peut être affecté à plusieurs blocs.
+ *@author Antoine
 */
 
 class StPosition{

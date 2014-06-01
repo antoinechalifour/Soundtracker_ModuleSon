@@ -57,6 +57,7 @@ void StSample::setNom(QString nom){
 void StSample::setSound(QString name){
     cout<<"Initialisation du son"<<endl;
     cout<<"Création de l'url"<<endl;
+    this->setNom(name);
     sound->setMedia(QUrl::fromLocalFile(name));
 }
 
@@ -73,10 +74,11 @@ void StSample::play(){
 	sound->play();
 }
 
-void StSample::play(int note, int volume){
+void StSample::play(int note, int divVolume){
 	float sp = ((float)note) / 440.0;
     sound->setPlaybackRate(sp);
-    sound->setVolume(volume);
+    float vol = (divVolume / 10) * volume;
+    sound->setVolume((int) vol);
     this->play();
 }
 

@@ -9,6 +9,8 @@ Une piste est caractérisée par :
 - mute : booléen indiquant si la piste est à lire ou pas
 - solo : indique si la piste est à lire en solo
 - un tableau de 64 divisions à lire successivement.
+
+ *@author Antoine
 */
 
 class StPiste{

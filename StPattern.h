@@ -10,6 +10,7 @@ Un sample est caractérisé par :
 - id : son identifiant au sein du morceau
 - nom : son nom
 - pistes : un tableau de 8 pistes.
+ *@author Antoine
 */
 class StPattern{
 private:

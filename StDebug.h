@@ -1,10 +1,16 @@
+/**
+  Fichier à inclure à la place de tous les autres.
+  Le mode debug STDEBUG est défini ici.
+  Les fréquences référence sont définies ici.
+
+  @author Antoine
+  */
+
 #ifndef DEBUG_H
 #define DEBUG_H
 
 #include <iostream>
-#include <iostream>
 #include <windows.h>
-
 
 #include <QCheckBox>
 #include <QDebug>
@@ -27,7 +33,7 @@
 #include <QUrl>
 #include <QVBoxLayout>
 
-#define STDEBUG 0
+#define STDEBUG
 
 #define FREQ_C 65
 #define FREQ_CS 69

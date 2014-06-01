@@ -41,7 +41,7 @@ void ControlleurPatternEditor::setPattern(int value){
             ctrlsDivision[i][j]->disconnect();
             if(tmp == NULL){
                 panel->getPiste(i)->getDivision(j)->getSampleText()->setValue(-1);
-                panel->getPiste(i)->getDivision(j)->getVolumeText()->setValue(4);
+                panel->getPiste(i)->getDivision(j)->getVolumeText()->setValue(0);
                 panel->getPiste(i)->getDivision(j)->getNoteText()->setText("---");
             }
             else{
