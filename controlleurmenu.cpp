@@ -1,7 +1,8 @@
 #include "controlleurmenu.h"
 
-ControlleurMenu::ControlleurMenu(ListeSample* samples, StMorceau* modele, IHMMainWindow* panel, QObject *parent) :
+ControlleurMenu::ControlleurMenu(ListeSample* samples, ListePattern* patterns, StMorceau* modele, IHMMainWindow* panel, QObject *parent) :
     samples(samples),
+    patterns(patterns),
     modele(modele),
     panel(panel),
     QObject(parent)
@@ -22,11 +23,13 @@ void ControlleurMenu::loadSample(){
 
 void ControlleurMenu::loadSong(){
     QString fileName = QFileDialog::getOpenFileName(panel,tr("Sélectionnez un morceau"),"Morceau", tr("Soundtracker file (*.st)"));
-    cout<<fileName.toStdString()<<endl;
-    //module de paul
+    IOFile file(modele, patterns, samples);
+    file.unserialize(fileName);
 }
 
 void ControlleurMenu::saveSong(){
+    IOFile file(modele, patterns, samples);
+    file.serialize();
 
 }
 

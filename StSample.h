@@ -39,6 +39,7 @@ public:
     StSample(const StSample&);
 
     void setNom(QString nom);
+    inline void setId(int id){ this->id = id; }
     inline void setVolume(int volume){ this->volume = volume; }
     void setRepeat(bool repeat);
     inline void setRepeatlen(int repeatlen){ this->repeatlen = repeatlen; }

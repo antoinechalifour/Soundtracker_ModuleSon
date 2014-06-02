@@ -20,7 +20,8 @@ StSample::StSample():
 	id(nbSamples),
 	volume(100),
 	repeat(false),
-	repeatlen(-1)
+    repeatlen(-1),
+    pitch(440)
 {
 #ifdef STDEBUG
     cout<<"Creation du sample id= "<<id<<endl;
@@ -38,6 +39,7 @@ StSample::StSample(const StSample& s):
 	volume(s.volume),
 	repeat(s.repeat),
 	repeatlen(s.repeatlen),
+    pitch(s.pitch),
 	sound(s.sound)
 {
 	setNom("Nom par defaut");

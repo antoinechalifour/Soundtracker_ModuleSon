@@ -32,6 +32,7 @@ public:
     StPiste(const StPiste& copie);
     StPiste& operator=(const StPiste&);
 
+    inline void setId(int id){ this->id = id; }
     inline void setMute(bool mute){ this->mute = mute; }
     inline void setSolo(bool solo){ this->solo = solo; }
 
@@ -45,8 +46,8 @@ public:
     inline bool isMute() const { return mute; }
     inline bool isSolo() const { return solo; }
     inline StDivision& getDivision(int index) const {
-        StDivision tmp(divisions[index]);
-        return tmp;
+        StDivision* tmp = new StDivision(divisions[index]);
+        return *tmp;
     }
 
 

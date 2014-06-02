@@ -258,6 +258,6 @@ void testTimer(){
 void serialize(){
     StMorceau m;
     m.setNom("TestMorceau.st");
-    IOFile iofile;
-    iofile.serialize(&m);
+    //IOFile iofile;
+    //iofile.serialize(&m);
 }

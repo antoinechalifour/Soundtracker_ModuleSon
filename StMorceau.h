@@ -40,6 +40,7 @@ public:
      * ****************************************************************/
     StMorceau();
     StMorceau(const StMorceau& copie);
+    StMorceau& operator=(const StMorceau& copie);
 
     inline QString getNom() { return nom; }
     inline int getTempo() { return tempo; }
@@ -56,8 +57,8 @@ public:
     inline int getTempo() const { return tempo; }
     inline int getVolume() const { return volume; }
     inline StPosition& getPosition(int i) const {
-        StPosition tmp(positions[i]);
-        return tmp;
+        StPosition* tmp = new StPosition(positions[i]);
+        return *tmp;
     }
     inline int getIndexLastPosition() const { return indexLastPosition; }
 

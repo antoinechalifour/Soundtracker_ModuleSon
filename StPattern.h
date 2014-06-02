@@ -35,9 +35,15 @@ public:
     StPiste& getPiste(int index);
 
     void setNom(QString nom);
+    inline void setId(int id){ this->id = id; }
+    inline void setPiste(StPiste piste, int i){ pistes[i] = piste ; }
 
     inline int getID() const { return id; }
     inline QString getNom() const { return nom; }
+    inline StPiste& getPiste(int index) const {
+        StPiste* pi = new StPiste(pistes[index]);
+        return *pi;
+    }
 
 	void debug();
 };

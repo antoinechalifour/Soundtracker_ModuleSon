@@ -43,15 +43,17 @@ public:
      */
     StDivision& operator=(const StDivision&);
 
-    static inline int getNbDivisions(){ return nbDivisions; }
-    inline int getId(){ return id; }
     inline void setId(int id){ this->id = id; }
-    inline int getNote(){ return note; }
     inline void setNote(int note){ this->note = note; }
-    inline int getVolume(){ return volume; }
     inline void setVolume(int volume){ this->volume = volume; }
-    inline StSample* getSample(){ return sample; }
     void setSample(StSample* sample);
+
+    static inline int getNbDivisions(){ return nbDivisions; }
+    inline int getId() const { return id; }
+    inline int getNote() const { return note; }
+    inline int getVolume() const { return volume; }
+    inline StSample* getSample(){ return sample; }
+    inline StSample* getSample() const { return sample; }
 	bool isRepeat();
 
     /**

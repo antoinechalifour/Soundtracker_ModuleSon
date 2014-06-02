@@ -7,17 +7,20 @@
 #include "IHMMainWindow.h"
 #include "IHMMenuPanel.h"
 #include "listesample.h"
+#include "listepattern.h"
+#include "iofile.h"
 
 class ControlleurMenu : public QObject
 {
     Q_OBJECT
 private:
     ListeSample* samples;
+    ListePattern* patterns;
     StMorceau* modele;
     IHMMainWindow* panel;
 
 public:
-    explicit ControlleurMenu(ListeSample* samples, StMorceau* modele, IHMMainWindow* panel, QObject *parent = 0);
+    explicit ControlleurMenu(ListeSample* samples, ListePattern* patterns, StMorceau* modele, IHMMainWindow* panel, QObject *parent = 0);
 
 signals:
 

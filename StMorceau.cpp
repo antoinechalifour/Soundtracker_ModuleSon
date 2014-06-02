@@ -15,15 +15,28 @@ StMorceau::StMorceau():
 	volume(100),
 	indexLastPosition(-1)
 {
-    setNom("Morceau...");
+    setNom("Morceau.st");
 }
 
 StMorceau::StMorceau(const StMorceau &copie):
     tempo(copie.tempo),
     volume(copie.volume),
     indexLastPosition(copie.indexLastPosition),
-    nom(copie.nom){}
+    nom(copie.nom){
+    for(int i=0 ; i<128 ; i++){
+        positions[i] = copie.positions[i];
+    }
+}
 
+StMorceau& StMorceau::operator =(const StMorceau& copie){
+    this->tempo = copie.tempo;
+    this->volume = copie.volume;
+    this->indexLastPosition = copie.indexLastPosition;
+    this->nom = copie.nom;
+    for(int i=0 ; i<128 ; i++){
+        positions[i] = copie.positions[i];
+    }
+}
 
 /*******************************************************************
  * GETTERS / SETTERS

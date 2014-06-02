@@ -13,7 +13,5 @@ int main(int argc, char *argv[])
     w.setWindowTitle("SoundTracker");
     w.show();
 
-    serialize();
-
     return a.exec();
 }

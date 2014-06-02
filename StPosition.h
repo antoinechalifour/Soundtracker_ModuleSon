@@ -26,12 +26,14 @@ public:
     StPosition(const StPosition& copie);
 
     void setPattern(StPattern* pattern);
+    inline void setId(int id){ this->id = id; }
 
     static inline int getNbPositions(){ return nbPositions; }
     inline int getId(){ return id; }
     inline StPattern* getPattern(){ return pattern; }
 
     inline int getId() const { return id; }
+    inline StPattern* getPattern() const { return pattern; }
 
 	void debug();
 };
