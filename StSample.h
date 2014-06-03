@@ -4,18 +4,16 @@
 #include "StDebug.h"
 
 /**
-Classe représentant un Sample.
-Un sample est caractérisé par :
-- id : son identifiant au sein du morceau
-- nom : son nom
-- volume : son volume (compris entre 1 et 100)
-- repeat : booléen (à lire en boucle ou pas)
-- repeatlen : la longueur à partie de laquelle il doit être répété
-- pitch : sa hauteur (en hertz)
-
- *@author Antoine
-*/
-
+ * @brief Classe représentant un Sample.
+ * Un sample est caractérisé par :
+ * - id : son identifiant au sein du morceau
+ * - nom : son nom
+ * - volume : son volume (compris entre 1 et 100)
+ * - repeat : booléen (à lire en boucle ou pas)
+ * - repeatlen : la longueur à partie de laquelle il doit être répété
+ * - pitch : sa hauteur (en hertz)
+ * @author Antoine
+ */
 class StSample{
 private:
     /*******************************************************************
@@ -47,12 +45,6 @@ public:
     void setSound(QString name);
 
     static inline int getNbSamples(){ return nbSamples; }
-    inline int getId(){ return id; }
-    inline QString getNom(){ return nom; }
-    inline int getVolume(){ return volume; }
-    inline bool isRepeat(){ return repeat; }
-    inline int getRepeatlen(){ return repeatlen; }
-    inline int getPitch(){ return pitch; }
 
     inline int getId() const { return id; }
     inline QString getNom() const { return nom; }

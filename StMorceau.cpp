@@ -4,12 +4,6 @@
 /*******************************************************************
  * CONSTRUCTEURS
  * ****************************************************************/
-
-/**
-Constructeur par défaut. Initialise :
-- le tempo à 96
-- le volume à son maximum, 100
-*/
 StMorceau::StMorceau():
 	tempo(96),
 	volume(100),

@@ -15,11 +15,6 @@ int StPiste::nbPistes = 0;
 /*******************************************************************
  * CONSTRUCTEURS
  * ****************************************************************/
-/**
-Constructeur par défaut. Initialise :
-- solo à faux
-- mute à faux
-*/
 StPiste::StPiste():
     id(nbPistes),
     mute(false),
@@ -36,9 +31,6 @@ StPiste::StPiste(const StPiste &copie):
 /*******************************************************************
  * OPERATEURS
  * ****************************************************************/
-/**
-Opérateur d'affectation
-*/
 StPiste& StPiste::operator=(const StPiste& p){
 	this->mute = p.mute;
 	this->solo = p.solo;
@@ -54,9 +46,6 @@ StPiste& StPiste::operator=(const StPiste& p){
 /*******************************************************************
  * GETTERS / SETTERS
  * ****************************************************************/
-/**
-Retourne une référence vers la division demandée. Permet l'affectation et le paramétrage de la division.
-*/
 StDivision& StPiste::getDivision(int index){
 	if (index < 0 || index > 63) throw StValueException("La division n'est pas valide. Veuillez saisir un entier entre 0 et 63");
 	return divisions[index];

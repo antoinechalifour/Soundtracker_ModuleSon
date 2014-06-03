@@ -11,11 +11,6 @@ Compteur des positions, permettant l'attribution des identifiants à la construct
 */
 int StPosition::nbPositions = 0;
 
-/**
-Constructeur par défaut. Initialise :
-- l'id au nombre de position.
-- le pattern à NULL pour éviter toute fuite de mémoire.
-*/
 StPosition::StPosition():
 	id(nbPositions),
 	pattern(NULL)

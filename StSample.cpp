@@ -9,13 +9,6 @@ int StSample::nbSamples = 0;
 /*******************************************************************
  * CONSTRUCTEURS
  * ****************************************************************/
-/**
-Constructeur par défaut. Initialise :
-- l'id à nbSample
-- le volume à 100 (maximum)
-- le repeat à false
-- le repeatlen à -1
-*/
 StSample::StSample():
 	id(nbSamples),
 	volume(100),
@@ -31,9 +24,6 @@ StSample::StSample():
     sound = new QMediaPlayer;
 }
 
-/**
-Constructeur par recopie
-*/
 StSample::StSample(const StSample& s):
 	id(s.id),
 	volume(s.volume),

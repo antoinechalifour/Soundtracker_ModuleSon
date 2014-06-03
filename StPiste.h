@@ -37,11 +37,7 @@ public:
     inline void setSolo(bool solo){ this->solo = solo; }
 
     static inline int getNbPistes(){ return nbPistes; }
-    inline int getId(){ return id; }
-    inline bool isMute(){ return mute; }
-    inline bool isSolo(){ return solo; }
     StDivision& getDivision(int index);
-
     inline int getId() const { return id; }
     inline bool isMute() const { return mute; }
     inline bool isSolo() const { return solo; }

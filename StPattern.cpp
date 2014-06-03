@@ -15,12 +15,6 @@ int StPattern::nbPattern = 0;
 /*******************************************************************
  * CONSTRUCTEURS
  * ****************************************************************/
-
-/**
-Constructeur par défaut. Initialise :
-- l'id au nombre de pattern
-- le nom à une valeur par défaut.
-*/
 StPattern::StPattern():
 	id(nbPattern)
 {
@@ -28,9 +22,6 @@ StPattern::StPattern():
 	nbPattern++;
 }
 
-/**
-Constructeur par recopie.
-*/
 StPattern::StPattern(const StPattern& p):
 	id(p.id)
 {

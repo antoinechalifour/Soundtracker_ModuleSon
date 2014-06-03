@@ -5,8 +5,7 @@
 #include "StException.h"
 
 /**
-  Classe permettant de gérer les erreurs dues à des valeurs illégales.
- * @brief The StValueException class
+ * @brief Classe permettant de gérer les erreurs dues à des valeurs illégales.
  * @author Antoine
  */
 class StValueException : public StException{

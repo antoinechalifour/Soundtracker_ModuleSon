@@ -4,11 +4,10 @@
 #include "StPattern.h"
 
 /**
-Une position représente un bloc : une séquence du morceau. Un pattern est affecté à un bloc.
-Ce même pattern peut être affecté à plusieurs blocs.
- *@author Antoine
-*/
-
+ * @brief Une position représente un bloc : une séquence du morceau. Un pattern est affecté à un bloc.
+ * Ce même pattern peut être affecté à plusieurs blocs.
+ * @author Antoine
+ */
 class StPosition{
 private:
     /*******************************************************************
@@ -29,9 +28,6 @@ public:
     inline void setId(int id){ this->id = id; }
 
     static inline int getNbPositions(){ return nbPositions; }
-    inline int getId(){ return id; }
-    inline StPattern* getPattern(){ return pattern; }
-
     inline int getId() const { return id; }
     inline StPattern* getPattern() const { return pattern; }
 
